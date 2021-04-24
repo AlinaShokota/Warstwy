@@ -19,15 +19,6 @@ namespace Warstwy.ViewModel
     {
         public DispatcherTimer _timer;
 
-        public ObservableCollection<string> Companies { get; private set; }
-
-        private string _comoselectedValue;
-        public string ComoSelectedValue
-        {
-            get { return _comoselectedValue; }
-            set { _comoselectedValue = value; }
-        }
-
         private double currentTemp;
         public double CurrentTemp
         {
@@ -43,36 +34,19 @@ namespace Warstwy.ViewModel
             }
         }
 
-        private string roomName;
-        public string RoomName
-        {
-            get
-            {
-                return this.roomName;
-            }
-            set
-            {
-
-                roomName = value;
-                OnPropertyChanged();
-            }
-        }
-
-
 
         public TempViewModel()
         {
             
-            
-            Room room = new Room("bedroom");
-            RoomName = room.Name;
+            Room room = new Room("livingroom");
+            double temp = room.getRoomTemperature();
+            CurrentTemp = Math.Round(temp, 2);
             _timer = new DispatcherTimer(DispatcherPriority.Render);
-            _timer.Interval = TimeSpan.FromSeconds(3);
+            _timer.Interval = TimeSpan.FromSeconds(5);
             _timer.Tick += (sender, args) =>
             {
-                double temp = room.getRoomTemperature();
+                temp = room.getRoomTemperature();
                 CurrentTemp = Math.Round(temp, 2);
-                //Console.WriteLine(CurrentTemp);
             };
             _timer.Start();
         }

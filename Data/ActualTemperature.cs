@@ -27,7 +27,7 @@ namespace Data
                 updateBedroomTemp();
             }
             int a = rnd2.Next(0,100);
-            if (a > 60)
+            if (a > 50)
             {
                 BedroomTemperature += 0.1;
             }
@@ -46,7 +46,7 @@ namespace Data
                 updateLivingroomTemp();
             }
             int a = rnd2.Next(0, 100);
-            if (a > 60)
+            if (a > 50)
             {
                 LivingroomTemperature += 0.1;
             }
