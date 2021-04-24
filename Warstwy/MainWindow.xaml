@@ -19,11 +19,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
        
-        <ComboBox x:Name="comboBox"  SelectedValuePath="Content" SelectedValue="{Binding ComoSelectedValue}" Width="120" Height="22" VerticalAlignment="Top">
+        <ComboBox Text="Select room" IsEditable="True" SelectedValuePath="Content" SelectedValue="{Binding ComoSelectedValue}" Width="120" Height="22" VerticalAlignment="Top" Margin="85,19,95,0">
             <ComboBoxItem Content="bedroom"/>
             <ComboBoxItem Content="livingroom"/>
         </ComboBox>
-        <Button Width="200" Height="30" Command="{Binding SubmitButtonCommand}">Submit</Button>
+        <!--<Button  Command="{Binding SubmitButtonCommand}" Margin="55,97,45,292">Submit</Button>-->
 
 
         <Label Name="lblTimer" Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentTemp}" ></Label>

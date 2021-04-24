@@ -25,7 +25,7 @@ namespace Warstwy.ViewModel
         public string ComoSelectedValue
         {
             get { return _comoselectedValue; }
-            set { _comoselectedValue = value; CheckAndEnableButton(); }
+            set { _comoselectedValue = value; ChangeRoomName(); }
         }
 
         private double currentTemp;
@@ -51,7 +51,7 @@ namespace Warstwy.ViewModel
             double temp = room.getRoomTemperature();
             CurrentTemp = Math.Round(temp, 2);
             _timer = new DispatcherTimer(DispatcherPriority.Render);
-            _timer.Interval = TimeSpan.FromSeconds(5);
+            _timer.Interval = TimeSpan.FromSeconds(3);
             _timer.Tick += (sender, args) =>
             {
                 temp = room.getRoomTemperature();
@@ -68,12 +68,11 @@ namespace Warstwy.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
-        public void CheckAndEnableButton()
+        public void ChangeRoomName()
         {
 
-            SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => { MessageBox.Show(ComoSelectedValue); });
+            //SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => { MessageBox.Show(ComoSelectedValue); });
             room.Name = ComoSelectedValue;
-            OnPropertyChanged("SubmitButtonCommand");
 
         }
     }
