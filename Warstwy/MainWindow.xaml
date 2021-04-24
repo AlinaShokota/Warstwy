@@ -23,7 +23,8 @@
             <ComboBoxItem Content="bedroom"/>
             <ComboBoxItem Content="livingroom"/>
         </ComboBox>
-        
+        <Button Width="200" Height="30" Command="{Binding SubmitButtonCommand}">Submit</Button>
+
 
         <Label Name="lblTimer" Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentTemp}" ></Label>
     </Grid>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Warstwy.Model;
@@ -18,6 +19,14 @@ namespace Warstwy.ViewModel
     public class TempViewModel : INotifyPropertyChanged
     {
         public DispatcherTimer _timer;
+        public ICommand SubmitButtonCommand { get; set; }
+
+        private string _comoselectedValue="";
+        public string ComoSelectedValue
+        {
+            get { return _comoselectedValue; }
+            set { _comoselectedValue = value; CheckAndEnableButton(); }
+        }
 
         private double currentTemp;
         public double CurrentTemp
@@ -34,11 +43,12 @@ namespace Warstwy.ViewModel
             }
         }
 
-
+        Room room = new Room("");
         public TempViewModel()
         {
             
-            Room room = new Room("livingroom");
+            
+            //RoomName = room.Name;
             double temp = room.getRoomTemperature();
             CurrentTemp = Math.Round(temp, 2);
             _timer = new DispatcherTimer(DispatcherPriority.Render);
@@ -47,6 +57,7 @@ namespace Warstwy.ViewModel
             {
                 temp = room.getRoomTemperature();
                 CurrentTemp = Math.Round(temp, 2);
+                //Console.WriteLine(CurrentTemp);
             };
             _timer.Start();
         }
@@ -56,6 +67,15 @@ namespace Warstwy.ViewModel
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void CheckAndEnableButton()
+        {
+
+            SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => { MessageBox.Show(ComoSelectedValue); });
+            room.Name = ComoSelectedValue;
+            OnPropertyChanged("SubmitButtonCommand");
+
         }
     }
 }

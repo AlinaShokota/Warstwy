@@ -23,7 +23,11 @@ namespace Logic
                 actual.updateLivingroomTemp();
                 return actual.LivingroomTemperature;
             }
-            return 0;
+            else
+            {
+                return 0;
+            }
+            
             
         }
     }
