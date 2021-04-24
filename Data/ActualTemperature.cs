@@ -11,14 +11,15 @@ namespace Data
         public double BedroomTemperature = generateActualTemp();
         public double LivingroomTemperature = generateActualTemp();
 
+        private static Random rnd = new Random();
         private static double generateActualTemp()
         {
-            Random rnd = new Random();
+            
             return rnd.Next(18, 30);
         }
 
-        private Random rnd2 = new Random();
 
+        private Random rnd2 = new Random();
         public void updateBedroomTemp()
         {
             Console.WriteLine("updating bedroom temperature ...");

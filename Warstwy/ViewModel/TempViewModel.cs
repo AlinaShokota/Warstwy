@@ -47,7 +47,6 @@ namespace Warstwy.ViewModel
         public TempViewModel()
         {
             
-            
             //RoomName = room.Name;
             double temp = room.getRoomTemperature();
             CurrentTemp = Math.Round(temp, 2);
