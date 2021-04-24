@@ -41,6 +41,20 @@ namespace Warstwy.Model
             }
         }
 
+        private double goalTemp;
+        public double GoalTemp
+        {
+            get
+            {
+                return goalTemp;
+            }
+            set
+            {
+                goalTemp = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Room(String name)
         {
             this.Name = name;
@@ -48,10 +62,11 @@ namespace Warstwy.Model
 
         
 
-        public double getRoomTemperature()
+        public double getRoomTemperature(double goal)
         {
-            return sensor.getActualTemperature(this.name);
+            return sensor.getActualTemperature(this.name, goal);
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

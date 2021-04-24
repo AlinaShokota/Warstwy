@@ -18,7 +18,7 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-       
+
         <ComboBox Text="Select room" IsEditable="True" SelectedValuePath="Content" SelectedValue="{Binding ComoSelectedValue}" Width="120" Height="22" VerticalAlignment="Top" Margin="85,19,95,0">
             <ComboBoxItem Content="bedroom"/>
             <ComboBoxItem Content="livingroom"/>
@@ -26,7 +26,12 @@
         <!--<Button  Command="{Binding SubmitButtonCommand}" Margin="55,97,45,292">Submit</Button>-->
 
 
-        <Label Name="lblTimer" Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentTemp}" ></Label>
+        <!--<Label Name="lblTimer" Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentTemp}" ></Label>-->
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="{Binding CurrentTemp}" Margin="146,0,220,0"/>
+            <TextBox Width="300" Text="{Binding GoalTemp}" Margin="96,0"/>
+            <Button Width="200" Command="{Binding SubmitButtonCommand}" Content="Submit" Margin="146,0"/>
+        </StackPanel>
     </Grid>
 
 </Window>

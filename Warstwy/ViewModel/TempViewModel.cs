@@ -1,5 +1,4 @@
-﻿using Data;
-using Logic;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +24,26 @@ namespace Warstwy.ViewModel
         public string ComoSelectedValue
         {
             get { return _comoselectedValue; }
-            set { _comoselectedValue = value; ChangeRoomName(); }
+            set {
+                _comoselectedValue = value;
+                ChangeRoomName(); }
+        }
+
+        private double goalTemp;
+        public double GoalTemp
+        {
+            get
+            {
+                return goalTemp;
+            }
+            set
+            {
+
+                goalTemp = value;
+                ChangeRoomName();
+                CheckAndEnableButton();
+                OnPropertyChanged();
+            }
         }
 
         private double currentTemp;
@@ -47,14 +65,13 @@ namespace Warstwy.ViewModel
         public TempViewModel()
         {
             
-            //RoomName = room.Name;
-            double temp = room.getRoomTemperature();
+            double temp = room.getRoomTemperature(GoalTemp);
             CurrentTemp = Math.Round(temp, 2);
             _timer = new DispatcherTimer(DispatcherPriority.Render);
             _timer.Interval = TimeSpan.FromSeconds(3);
             _timer.Tick += (sender, args) =>
             {
-                temp = room.getRoomTemperature();
+                temp = room.getRoomTemperature(GoalTemp);
                 CurrentTemp = Math.Round(temp, 2);
                 //Console.WriteLine(CurrentTemp);
             };
@@ -70,9 +87,48 @@ namespace Warstwy.ViewModel
 
         public void ChangeRoomName()
         {
-
-            //SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => { MessageBox.Show(ComoSelectedValue); });
             room.Name = ComoSelectedValue;
+        }
+
+        public void CheckAndEnableButton()
+        {
+            string result = string.Empty;
+            if (room.Name.Equals("")){
+                result = string.Format("Choose the room!");
+                SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => {
+                    MessageBox.Show(result);
+                });
+            }
+            else
+            {
+                if (GoalTemp >= 17 && GoalTemp <= 28)
+                {
+                    result = string.Format("Goal temperature is set: \n{0}", GoalTemp);
+                    SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => {
+                        MessageBox.Show(result);
+                        room.GoalTemp = GoalTemp;
+                    });
+                }
+                else if (GoalTemp > 28)
+                {
+                    result = result = string.Format("Goal temperature \n{0} is too high. Enter lower temperature", GoalTemp);
+                    SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => {
+                        MessageBox.Show(result);
+                    });
+                }
+                else
+                {
+                    result = result = string.Format("Goal temperature \n{0} is too low. Enter higher temperature", GoalTemp);
+                    SubmitButtonCommand = new RelayCommand((ob) => { return true; }, (ob) => {
+                        MessageBox.Show(result);
+                    });
+                }
+            }
+            
+
+            
+
+            OnPropertyChanged("SubmitButtonCommand");
 
         }
     }

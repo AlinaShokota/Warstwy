@@ -4,11 +4,9 @@ C:\Users\User\source\repos\Warstwy\Warstwy\bin\Debug\Warstwy.pdb
 C:\Users\User\source\repos\Warstwy\Warstwy\bin\Debug\Data.dll
 C:\Users\User\source\repos\Warstwy\Warstwy\bin\Debug\Data.pdb
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy.csprojAssemblyReference.cache
-C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\MainWindow.g.cs
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\App.g.cs
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy_MarkupCompile.cache
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy_MarkupCompile.lref
-C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\MainWindow.baml
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy.g.resources
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy.Properties.Resources.resources
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy.csproj.GenerateResource.cache
@@ -19,3 +17,5 @@ C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\Warstwy.pdb
 C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\User\source\repos\Warstwy\Warstwy\bin\Debug\Logic.dll
 C:\Users\User\source\repos\Warstwy\Warstwy\bin\Debug\Logic.pdb
+C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\View\MainWindow.g.cs
+C:\Users\User\source\repos\Warstwy\Warstwy\obj\Debug\View\MainWindow.baml
