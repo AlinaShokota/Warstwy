@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\Warstwy\Data\bin\Debug\Data.dll
+C:\Users\User\source\repos\Warstwy\Data\bin\Debug\Data.pdb
+C:\Users\User\source\repos\Warstwy\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Warstwy\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Warstwy\Data\obj\Debug\Data.dll
+C:\Users\User\source\repos\Warstwy\Data\obj\Debug\Data.pdb
